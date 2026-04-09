@@ -3,125 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio | [Your Name]</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
-        }
-
-        * { box-sizing: border-box; transition: all 0.2s ease; }
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text-main); 
-            margin: 0; 
-            line-height: 1.6;
-        }
-
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-
-        /* Header Section */
-        header { text-align: center; margin-bottom: 80px; }
-        .pfp-placeholder {
-            width: 120px; height: 120px;
-            background: linear-gradient(45deg, var(--accent), #818cf8);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
-        h1 { font-size: 2.5rem; margin: 10px 0; letter-spacing: -1px; }
-        .subtitle { color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
-
-        /* Project Grid */
-        .section-title { font-size: 1.5rem; margin-bottom: 30px; border-left: 4px solid var(--accent); padding-left: 15px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card i { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; display: block; }
-        .card h3 { margin: 0 0 10px 0; }
-        .card p { color: var(--text-dim); font-size: 0.95rem; }
-        
-        .status-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        /* Skills Section */
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 50px; }
-        .skill-tag { background: #334155; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; }
-
-        footer { text-align: center; margin-top: 100px; color: var(--text-dim); font-size: 0.8rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #ffffff; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glow:hover { border-color: #5865F2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.2); }
     </style>
 </head>
-<body>
+<body class="selection:bg-indigo-500/30">
 
-<div class="container">
-    <header>
-        <div class="pfp-placeholder"><i class="fas fa-code"></i></div>
-        <p class="subtitle">Full Stack Developer</p>
-        <h1>[Your Name]</h1>
-        <p style="max-width: 600px; margin: 20px auto; color: var(--text-dim);">
-            I build advanced Discord automation systems and modern web interfaces. 
-            Currently focusing on scalable backend architecture and API integrations.
-        </p>
-    </header>
+    <div class="max-w-5xl mx-auto px-6 py-20">
+        <header class="flex flex-col md:flex-row items-center justify-between gap-8 mb-32">
+            <div class="space-y-4 text-center md:text-left">
+                <div class="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-semibold tracking-wide">
+                    AVAILABLE FOR PROJECTS
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">Full-Stack <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Developer</span></h1>
+                <p class="text-gray-400 text-lg max-w-lg">Crafting high-performance Discord systems and intuitive web experiences. Focused on clean code and scalable architecture.</p>
+                <div class="flex gap-4 justify-center md:justify-start pt-4">
+                    <a href="#" class="p-3 glass rounded-xl glow"><i class="fab fa-github text-xl"></i></a>
+                    <a href="#" class="p-3 glass rounded-xl glow"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="p-3 glass rounded-xl glow"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-25"></div>
+                <img src="https://ui-avatars.com/api/?name=Dev&background=0D0D0D&color=fff&size=200" alt="Profile" class="relative w-48 h-48 rounded-full border-2 border-white/10">
+            </div>
+        </header>
 
-    <h2 class="section-title">Active Projects</h2>
-    <div class="grid">
-        <div class="card">
-            <i class="fab fa-discord"></i>
-            <h3>Nova Bot</h3>
-            <p>A multi-purpose Discord bot with advanced moderation, custom logging, and an integrated dashboard.</p>
-            <span class="status-badge">Online</span>
-        </div>
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="w-12 h-[2px] bg-indigo-500"></span>
+                Featured Work
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass p-8 rounded-3xl glow transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400">
+                            <i class="fab fa-discord text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500">Live Project</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Titan Systems</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">Advanced automation bot featuring custom economy engines, modular moderation, and real-time logging for large-scale servers.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded-md text-xs font-medium text-gray-300">Node.js</span>
+                        <span class="px-3 py-1 bg-white/5 rounded-md text-xs font-medium text-gray-300">Redis</span>
+                    </div>
+                </div>
 
-        <div class="card">
-            <i class="fas fa-database"></i>
-            <h3>Database API</h3>
-            <p>A custom REST API built to handle persistent data storage for various gaming communities.</p>
-            <span class="status-badge">Development</span>
-        </div>
+                <div class="glass p-8 rounded-3xl glow transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="p-4 bg-cyan-500/10 rounded-2xl text-cyan-400">
+                            <i class="fas fa-layer-group text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-500">In Progress</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Nebula Dashboard</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">A sleek web interface for managing bot configurations, featuring OAuth2 login and live analytics visualization.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-white/5 rounded-md text-xs font-medium text-gray-300">React</span>
+                        <span class="px-3 py-1 bg-white/5 rounded-md text-xs font-medium text-gray-300">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <i class="fas fa-shield-halved"></i>
-            <h3>Sentinel Guard</h3>
-            <p>Verification system for Discord servers using OAuth2 to prevent automated bot attacks.</p>
-            <span class="status-badge">Private Beta</span>
-        </div>
+        <section class="glass p-12 rounded-[40px] text-center">
+            <h2 class="text-xl font-semibold text-gray-400 mb-10">Tech Stack & Tools</h2>
+            <div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+                <i class="fab fa-js-square text-4xl hover:text-yellow-400"></i>
+                <i class="fab fa-node text-4xl hover:text-green-500"></i>
+                <i class="fab fa-react text-4xl hover:text-cyan-400"></i>
+                <i class="fab fa-python text-4xl hover:text-blue-500"></i>
+                <i class="fab fa-docker text-4xl hover:text-blue-400"></i>
+                <i class="fab fa-git-alt text-4xl hover:text-orange-500"></i>
+            </div>
+        </section>
+
+        <footer class="mt-32 text-center text-gray-600 text-sm italic">
+            Built from scratch &bull; 2026 Portfolio
+        </footer>
     </div>
-
-    <h2 class="section-title" style="margin-top: 60px;">Technologies</h2>
-    <div class="skills">
-        <span class="skill-tag">JavaScript (ES6+)</span>
-        <span class="skill-tag">Node.js</span>
-        <span class="skill-tag">Discord.js</span>
-        <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">HTML5/CSS3</span>
-        <span class="skill-tag">Git</span>
-    </div>
-
-    <footer>
-        &copy; 2026 [Your Name]. All rights reserved.
-    </footer>
-</div>
 
 </body>
 </html>
