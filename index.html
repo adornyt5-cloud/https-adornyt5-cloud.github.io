@@ -166,3 +166,14 @@
     </script>
 </body>
 </html>
+
+<script>
+    function startBeast() {
+        const audio = document.getElementById('audio-player');
+        const overlay = document.getElementById('entry-overlay');
+        
+        // Starts audio and hides the entry screen
+        audio.play().catch(error => console.log("Audio play failed:", error));
+        overlay.classList.add('hidden');
+    }
+</script>
