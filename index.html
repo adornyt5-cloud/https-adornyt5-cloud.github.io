@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beast.dev | Scriptin my own reality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        
+        body {
+            margin: 0; padding: 0; background: #000;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; color: white; cursor: crosshair;
+        }
+
+        #bg-video {
+            position: fixed; right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            z-index: -1; filter: brightness(0.35) contrast(1.1);
+            object-fit: cover;
+        }
+
+        /* Entry Overlay */
+        #entry-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px);
+            z-index: 1000; display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+            cursor: pointer;
+        }
+
+        .enter-text {
+            font-weight: 700; letter-spacing: 5px; color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .main-wrapper {
+            height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            position: relative; z-index: 10;
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px; padding: 3rem 2.5rem; width: 420px;
+            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .avatar-circle {
+            width: 130px; height: 130px; border-radius: 50%;
+            margin: -95px auto 1.5rem;
+            border: 2px solid rgba(255, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            background: #000; overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .avatar-circle img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .username {
+            font-size: 2.8rem; font-weight: 700; color: #fff;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .discord-link {
+            display: inline-block; margin-top: 15px;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(88, 101, 242, 0.5));
+        }
+
+        .discord-link:hover { transform: scale(1.2); }
+
+        .discord-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px; padding: 14px;
+            margin-top: 25px; display: flex; align-items: center;
+            gap: 15px; text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .discord-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div id="entry-overlay" onclick="startBeast()">
+        <div class="enter-text">Click To Enter</div>
+    </div>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="https://r2.guns.lol/bca3f103-5891-4c26-be85-0447e5ae5e98.mp4" type="video/mp4">
+    </video>
+
+    <audio id="audio-player" loop>
+        <source src="https://file.garden/adjw67n9rzWH8vA2/1nonly_-_VICODIN_OFFICIAL_MUSIC_VIDEO_dir._by_noahsocold_128KBPS.m4a" type="audio/mpeg">
+    </audio>
+
+    <div class="main-wrapper">
+        <div class="profile-card">
+            <div class="avatar-circle">
+                <img src="https://r2.guns.lol/535d9083-7fb8-451d-b5b6-5b7e92e7d1f3.webp" alt="beast avatar">
+            </div>
+            
+            <h1 class="username">beast.dev</h1>
+            <p class="text-gray-400 font-light text-sm">Scriptin my own reality</p>
+
+            <a href="https://discord.gg/9HKvE8SpBp" target="_blank" class="discord-link">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#5865F2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2758-3.68-.2758-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1971.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.2259 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
+                </svg>
+            </a>
+
+            <div class="flex justify-center mt-4">
+                <div class="bg-black/60 px-4 py-1.5 rounded-md border border-white/10 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-gray-300">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="w-3" alt="py">
+                    <span>Python</span>
+                </div>
+            </div>
+
+            <div class="discord-card">
+                <div class="discord-avatar">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.1xcNwrLnhZ4NdvGvWpL0wwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" class="w-full h-full object-cover" alt="star avatar">
+                </div>
+                <div>
+                    <div class="font-bold text-sm">beast.1x</div>
+                    <div class="text-[10px] text-gray-500 uppercase tracking-tighter">last seen unknown</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startBeast() {
+            const audio = document.getElementById('audio-player');
+            const overlay = document.getElementById('entry-overlay');
+            audio.play();
+            overlay.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
