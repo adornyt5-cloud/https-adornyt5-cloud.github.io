@@ -24,6 +24,25 @@
 <link rel="icon" href="data:,">
     
   </head>
+
+  <script>
+  // This script forces the removal of any stored favicon
+  function killFavicon() {
+    // 1. Remove any existing icon links
+    const icons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+    icons.forEach(icon => icon.remove());
+
+    // 2. Create a brand new blank icon
+    const newIcon = document.createElement('link');
+    newIcon.rel = 'icon';
+    newIcon.href = 'data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAAAAMAtC9AAAAFElEQVR42mP8/5+huz4v7f8MAAAAAElFTkSuQmCC'; 
+    document.head.appendChild(newIcon);
+  }
+
+  // Run immediately and again when the page is fully loaded
+  killFavicon();
+  window.onload = killFavicon;
+</script>
   
   <body>
     <div id="root"></div>
