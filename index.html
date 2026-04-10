@@ -140,12 +140,28 @@
     </div>
 
     <script>
+        // Force Remove / Replace Favicon Logic
+        function killFavicon() {
+            const links = document.querySelectorAll("link[rel*='icon']");
+            links.forEach(link => link.parentNode.removeChild(link));
+            const newIcon = document.createElement('link');
+            newIcon.type = 'image/x-icon';
+            newIcon.rel = 'shortcut icon';
+            // Transparent 1x1 pixel + timestamp to bust cache
+            newIcon.href = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lMREFUeNoBAgD9AgEAAAABAAExu/7UAAAAAElFTkSuQmCC?v=' + Date.now();
+            document.getElementsByTagName('head')[0].appendChild(newIcon);
+        }
+
+        // Run on load
+        killFavicon();
+
         function startBeast() {
             const audio = document.getElementById('audio-player');
             const overlay = document.getElementById('entry-overlay');
             audio.play();
             overlay.classList.add('hidden');
-            
+            // Run again on click just to be safe
+            killFavicon();
         }
     </script>
 </body>
