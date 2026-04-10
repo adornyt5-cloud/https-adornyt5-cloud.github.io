@@ -1,1 +1,0 @@
-# https-adornyt5-cloud.github.io
