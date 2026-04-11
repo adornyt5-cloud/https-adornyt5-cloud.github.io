@@ -11,29 +11,31 @@
         body {
             margin: 0; padding: 0; background: #000;
             font-family: 'Inter', sans-serif;
-            overflow: hidden; color: white; cursor: crosshair;
+            overflow: hidden; color: white;
+            cursor: crosshair; 
         }
 
         #bg-video {
             position: fixed; right: 0; bottom: 0;
             min-width: 100%; min-height: 100%;
-            z-index: -1; filter: brightness(0.35) contrast(1.1);
+            z-index: -1; filter: brightness(0.3) contrast(1.1);
             object-fit: cover;
         }
 
-        /* Entry Overlay */
+        #snow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none;
+        }
+
         #entry-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(30px);
             z-index: 1000; display: flex; justify-content: center; align-items: center;
             transition: opacity 0.8s ease, visibility 0.8s;
             cursor: pointer;
         }
 
-        .enter-text {
-            font-weight: 700; letter-spacing: 5px; color: #ffffff;
-            text-transform: uppercase;
-        }
+        .enter-text { font-weight: 700; letter-spacing: 5px; color: #ffffff; text-transform: uppercase; }
 
         .main-wrapper {
             height: 100vh; display: flex; flex-direction: column;
@@ -42,52 +44,90 @@
         }
 
         .profile-card {
-            background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px; padding: 3rem 2.5rem; width: 420px;
-            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            background: rgba(10, 10, 10, 0.85); 
+            backdrop-filter: blur(25px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; 
+            padding: 3.5rem 2.5rem; 
+            width: 440px;
+            text-align: center; 
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 0, 0, 0.05);
+            position: relative;
         }
 
         .avatar-circle {
             width: 130px; height: 130px; border-radius: 50%;
-            margin: -95px auto 1.5rem;
-            border: 2px solid rgba(255, 0, 0, 0.8);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            margin: -105px auto 1.5rem;
+            border: 2px solid rgba(255, 0, 0, 1);
+            box-shadow: 0 0 35px rgba(255, 0, 0, 0.6);
             background: #000; overflow: hidden;
             display: flex; justify-content: center; align-items: center;
         }
 
-        .avatar-circle img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
+        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
 
         .username {
             font-size: 2.8rem; font-weight: 700; color: #fff;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            position: relative;
         }
 
-        .discord-link {
-            display: inline-block; margin-top: 15px;
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 0 5px rgba(88, 101, 242, 0.5));
+        .username:hover { animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); text-shadow: 2px 0 red; }
+            40% { transform: translate(-2px, -2px); text-shadow: -2px 0 blue; }
+            60% { transform: translate(2px, 2px); text-shadow: 2px 0 red; }
+            80% { transform: translate(2px, -2px); text-shadow: -2px 0 blue; }
+            100% { transform: translate(0); }
         }
 
-        .discord-link:hover { transform: scale(1.2); }
+        .typing-text { min-height: 20px; color: #ccc; margin-bottom: 1.5rem; }
+
+        .cursor { display: inline-block; width: 8px; background-color: white; margin-left: 2px; animation: blink 1s infinite; }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         .discord-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px; padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px; padding: 16px;
             margin-top: 25px; display: flex; align-items: center;
             gap: 15px; text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .discord-avatar {
-            width: 48px; height: 48px; border-radius: 50%;
+        .discord-avatar { 
+            width: 52px; height: 52px; border-radius: 50%; 
+            border: 2px solid rgba(255, 0, 0, 0.5);
+            overflow: hidden; 
+        }
+
+        .v3nx-tag {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(45, 45, 45, 0.8);
+            border-radius: 10px;
+            padding: 2px 8px;
+            margin-left: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            vertical-align: middle;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
+            gap: 4px;
         }
 
+        .v3nx-tag .emoji {
+            font-size: 1.2em;
+            line-height: 1;
+            position: relative;
+            top: -1px;
+        }
+
+        .discord-link { display: inline-block; transition: transform 0.3s ease; filter: drop-shadow(0 0 5px rgba(88, 101, 242, 0.5)); }
+        .discord-link:hover { transform: scale(1.2); cursor: pointer; }
         .hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 </head>
@@ -96,6 +136,8 @@
     <div id="entry-overlay" onclick="startBeast()">
         <div class="enter-text">Click To Enter</div>
     </div>
+
+    <canvas id="snow"></canvas>
 
     <video autoplay muted loop id="bg-video">
         <source src="https://r2.guns.lol/bca3f103-5891-4c26-be85-0447e5ae5e98.mp4" type="video/mp4">
@@ -112,7 +154,17 @@
             </div>
             
             <h1 class="username">beast.dev</h1>
-            <p class="text-gray-400 font-light text-sm">Scriptin my own reality</p>
+            
+            <p class="text-gray-200 font-light text-sm typing-text">
+                <span id="typewriter"></span><span class="cursor">&nbsp;</span>
+            </p>
+
+            <div class="flex justify-center mb-4">
+                <div class="bg-black/80 px-4 py-1.5 rounded-md border border-white/20 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-gray-200">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="w-3" alt="py">
+                    <span>Python</span>
+                </div>
+            </div>
 
             <a href="https://discord.gg/9HKvE8SpBp" target="_blank" class="discord-link">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="#5865F2" xmlns="http://www.w3.org/2000/svg">
@@ -120,60 +172,98 @@
                 </svg>
             </a>
 
-            <div class="flex justify-center mt-4">
-                <div class="bg-black/60 px-4 py-1.5 rounded-md border border-white/10 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-gray-300">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" class="w-3" alt="py">
-                    <span>Python</span>
-                </div>
-            </div>
-
             <div class="discord-card">
                 <div class="discord-avatar">
                     <img src="https://tse2.mm.bing.net/th/id/OIP.1xcNwrLnhZ4NdvGvWpL0wwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" class="w-full h-full object-cover" alt="star avatar">
                 </div>
-                <div>
-                    <div class="font-bold text-sm">beast.1x</div>
-                    <div class="text-[10px] text-gray-500 uppercase tracking-tighter">last seen - unknown</div>
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center">
+                        <span class="font-bold text-sm text-white">beast.1x</span>
+                        <div class="v3nx-tag">
+                            <span class="emoji">💀</span>
+                            V3NX
+                        </div>
+                    </div>
+                    <div class="text-[11px] text-gray-300 font-medium mt-1">Solo Dev of V3nex</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Force Remove / Replace Favicon Logic
-        function killFavicon() {
-            const links = document.querySelectorAll("link[rel*='icon']");
-            links.forEach(link => link.parentNode.removeChild(link));
-            const newIcon = document.createElement('link');
-            newIcon.type = 'image/x-icon';
-            newIcon.rel = 'shortcut icon';
-            // Transparent 1x1 pixel + timestamp to bust cache
-            newIcon.href = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lMREFUeNoBAgD9AgEAAAABAAExu/7UAAAAAElFTkSuQmCC?v=' + Date.now();
-            document.getElementsByTagName('head')[0].appendChild(newIcon);
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+
+        function initSnow() {
+            width = window.innerWidth; height = window.innerHeight;
+            canvas.width = width; canvas.height = height;
+            particles = [];
+            for (let i = 0; i < 45; i++) {
+                particles.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 1.5 + 0.5, v: Math.random() * 0.5 + 0.2 });
+            }
         }
 
-        // Run on load
-        killFavicon();
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+            ctx.beginPath();
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            updateParticles();
+        }
+
+        function updateParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i]; p.y += p.v;
+                if (p.y > height) { p.y = -10; p.x = Math.random() * width; }
+            }
+        }
+
+        function animateSnow() { drawParticles(); requestAnimationFrame(animateSnow); }
+        window.addEventListener('resize', initSnow);
+        initSnow(); animateSnow();
+
+        const textElement = document.getElementById('typewriter');
+        const phrases = ["Bypassin limits...", "Scriptin my own reality", "Buildin the future", "Python Developer"];
+        let phraseIndex = 0; let charIndex = 0; let isDeleting = false; let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--; typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++; typeSpeed = 150;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true; typeSpeed = 2000;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500;
+            }
+            setTimeout(type, typeSpeed);
+        }
 
         function startBeast() {
             const audio = document.getElementById('audio-player');
             const overlay = document.getElementById('entry-overlay');
-            audio.play();
+            audio.play().catch(e => console.log("Audio blocked"));
             overlay.classList.add('hidden');
-            // Run again on click just to be safe
-            killFavicon();
+            setTimeout(type, 1000);
         }
+
+        (function killFavicon() {
+            const newIcon = document.createElement('link');
+            newIcon.rel = 'shortcut icon';
+            newIcon.href = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lMREFUeNoBAgD9AgEAAAABAAExu/7UAAAAAElFTkSuQmCC';
+            document.head.appendChild(newIcon);
+        })();
     </script>
 </body>
 </html>
-
-<script>
-    function startBeast() {
-        const audio = document.getElementById('audio-player');
-        const overlay = document.getElementById('entry-overlay');
-        
-        // Starts audio and hides the entry screen
-        audio.play().catch(error => console.log("Audio play failed:", error));
-        overlay.classList.add('hidden');
-    }
-</script>
