@@ -12,7 +12,13 @@
             margin: 0; padding: 0; background: #000;
             font-family: 'Inter', sans-serif;
             overflow: hidden; color: white;
-            cursor: crosshair; 
+            /* Updated Custom Cursor */
+            cursor: url('https://media.discordapp.net/attachments/1233881524550635650/1489974800989425845/demon-slayer-kyojuro-rengoku-and-sword-cursor-pack_-_copia.png?ex=69dc41ea&is=69daf06a&hm=848c47965df7b5e690ff3552b2bc314c2b358be1d2b0893461891b053810a08a&=&format=webp&quality=lossless&width=32&height=32'), auto;
+        }
+
+        /* Ensure links also show the custom cursor or a pointer */
+        a, #entry-overlay, .discord-link {
+            cursor: url('https://media.discordapp.net/attachments/1233881524550635650/1489974800989425845/demon-slayer-kyojuro-rengoku-and-sword-cursor-pack_-_copia.png?ex=69dc41ea&is=69daf06a&hm=848c47965df7b5e690ff3552b2bc314c2b358be1d2b0893461891b053810a08a&=&format=webp&quality=lossless&width=32&height=32'), pointer;
         }
 
         #bg-video {
@@ -32,7 +38,6 @@
             background: rgba(0, 0, 0, 0.98); backdrop-filter: blur(30px);
             z-index: 1000; display: flex; justify-content: center; align-items: center;
             transition: opacity 0.8s ease, visibility 0.8s;
-            cursor: pointer;
         }
 
         .enter-text { font-weight: 700; letter-spacing: 5px; color: #ffffff; text-transform: uppercase; }
@@ -127,7 +132,7 @@
         }
 
         .discord-link { display: inline-block; transition: transform 0.3s ease; filter: drop-shadow(0 0 5px rgba(88, 101, 242, 0.5)); }
-        .discord-link:hover { transform: scale(1.2); cursor: pointer; }
+        .discord-link:hover { transform: scale(1.2); }
         .hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 </head>
